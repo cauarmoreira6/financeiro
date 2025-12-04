@@ -10,11 +10,13 @@ if (isset($_SESSION['usuario_id'])) {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Sistema Financeiro</title>
 </head>
+
 <body>
     <h1>Login - Sistema Financeiro</h1>
     <form action="autenticar.php" method="post">
@@ -32,5 +34,8 @@ if (isset($_SESSION['usuario_id'])) {
     </form>
 
     <p>Não tem conta? <a href="registro.php">Cadastre-se aqui</p>
+
+    
 </body>
+
 </html>
