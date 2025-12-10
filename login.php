@@ -20,7 +20,6 @@ if (isset($_SESSION['usuario_id'])) {
 </head>
 
 <body>
-
     <?php exibir_mensagem(); ?>
 
     <h1>Login - Sistema Financeiro</h1>
@@ -41,7 +40,6 @@ if (isset($_SESSION['usuario_id'])) {
     </form>
 
     <p>Não tem conta? <a href="registro.php">Cadastre-se aqui</p>
-
     
 </body>
 
