@@ -82,7 +82,7 @@ $ultimas_transacoes = $stmt_ultimas->fetchAll();
         <h2>Últimas Transações</h2>
 
         <?php if (count($ultimas_transacoes) > 0): ?>
-            <table border="1">
+            <table class="table ">
                 <thead>
                     <tr>
                         <th>Data</th>

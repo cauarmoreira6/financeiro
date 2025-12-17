@@ -45,24 +45,19 @@ $categorias = $stmt_categorias->fetchAll();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $transacao ? 'Editar' : 'Nova'; ?> Transação - Sistema Financeiro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style_nt.css">
 </head>
 <body>
+    <?php include 'navbar.php'; ?>
+
     <h1>Sistema Financeiro Pessoal</h1>
     
     <div>
         <p>Bem-vindo, <strong><?php echo htmlspecialchars($usuario_nome); ?></strong></p>
-        <a href="logout.php">Sair</a>
     </div>
     
     <?php exibir_mensagem(); ?>
-    
-    <nav>
-        <ul>
-            <li><a href="index.php">Dashboard</a></li>
-            <li><a href="categorias_listar.php">Categorias</a></li>
-            <li><a href="transacoes_listar.php">Transações</a></li>
-        </ul>
-    </nav>
     
     <h2><?php echo $transacao ? 'Editar' : 'Nova'; ?> Transação</h2>
     
@@ -124,5 +119,8 @@ $categorias = $stmt_categorias->fetchAll();
             </div>
         </form>
     <?php endif; ?>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>

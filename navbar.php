@@ -21,7 +21,7 @@
                 <li class="nav-item">
                     <a class="nav-link">Usuário: <?php echo $usuario_nome ?></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item-sair">
                     <a class="nav-link" href="logout.php">Sair</a>
                 </li>
             </ul>

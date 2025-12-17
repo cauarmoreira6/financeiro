@@ -39,52 +39,70 @@ if ($id_categoria) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Categorias - Sistema Financeiro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style_cat.css">
 </head>
 <body>
-    <h1>Sistema Financeiro</h1>
+    <?php include 'navbar.php'; ?>
 
-    <div>
-        <p>Bem-vindo, <strong> <?php echo $usuario_nome ?> </strong></p>
-        <a href="logout.php">Sair</a>
+    <div class="container mt-4">
+
+        <?php exibir_mensagem(); ?>
+
+        <div class="card card-form">
+
+            <div class="card-body">
+
+            <h2 class="mb-4">
+                <?php echo $categoria ? 'Editar' : 'Nova'; ?> Categoria
+            </h2>
+
+            <form action="categorias_salvar.php" method="POST">
+                <?php if ($categoria): ?>
+                    <input type="hidden" name="id_categoria"
+                           value="<?php echo $categoria['id_categoria']; ?>">
+                <?php endif; ?>
+
+                <div class="mb-3">
+                    <label class="form-label">Nome</label>
+                    <input type="text"
+                           name="nome"
+                           class="form-control"
+                           value="<?php echo $categoria ? htmlspecialchars($categoria['nome']) : ''; ?>"
+                           required>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">Tipo</label>
+                    <select name="tipo" class="form-select" required>
+                        <option value="">Selecione...</option>
+                        <option value="receita"
+                            <?php echo ($categoria && $categoria['tipo'] === 'receita') ? 'selected' : ''; ?>>
+                            Receita
+                        </option>
+                        <option value="despesa"
+                            <?php echo ($categoria && $categoria['tipo'] === 'despesa') ? 'selected' : ''; ?>>
+                            Despesa
+                        </option>
+                    </select>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-dark">
+                        Salvar
+                    </button>
+
+                    <a href="categorias_listar.php" class="btn btn-outline-secondary">
+                        Cancelar
+                    </a>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
     </div>
 
-    <?php exibir_mensagem(); ?>
-
-    <nav>
-        <ul>
-            <li><a href="inex.php">Dashboard</a></li>
-            <li><a href="categorias_listar.php">Categorias</a></li>
-            <li><a href="transacoes_listar.php">Transações</a></li>
-        </ul>
-    </nav>
-
-    <h2><?php echo $categoria ? 'Editar' : 'Nova'; ?> Categoria</h2>
-    
-    <form action="categorias_salvar.php" method="POST">
-        <?php if ($categoria): ?>
-            <input type="hidden" name="id_categoria" value="<?php echo $categoria['id_categoria']; ?>">
-        <?php endif; ?>
-        
-        <div>
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" 
-                   value="<?php echo $categoria ? htmlspecialchars($categoria['nome']) : ''; ?>" 
-                   required>
-        </div>
-        
-        <div>
-            <label for="tipo">Tipo:</label>
-            <select id="tipo" name="tipo" required>
-                <option value="">Selecione...</option>
-                <option value="receita" <?php echo ($categoria && $categoria['tipo'] === 'receita') ? 'selected' : ''; ?>>Receita</option>
-                <option value="despesa" <?php echo ($categoria && $categoria['tipo'] === 'despesa') ? 'selected' : ''; ?>>Despesa</option>
-            </select>
-        </div>
-        
-        <div>
-            <button type="submit">Salvar</button>
-            <a href="categorias_listar.php">Cancelar</a>
-        </div>
-    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>

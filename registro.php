@@ -14,6 +14,7 @@ if (isset($_SESSION['usuario_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro - Sistema Financeiro</title>
+    <link rel="stylesheet" href="style_cad.css">
 </head>
 <body>
     <h1>Sistema Financeiro Pessoal</h1>
@@ -47,6 +48,12 @@ if (isset($_SESSION['usuario_id'])) {
         </div>
     </form>
     
-    <p>Já tem conta? <a href="login.php">Faça login aqui</a></p>
+    <!-- <p>Já tem conta? <a href="login.php">Faça login aqui</a></p> -->
+
+    <p class="login-texto">
+    Já tem conta?
+    <a href="login.php" class="btn-login-link">Faça login aqui</a>
+</p>
+
 </body>
 </html>

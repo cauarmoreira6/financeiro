@@ -53,26 +53,19 @@ $categorias = $stmt_categorias->fetchAll();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transações - Sistema Financeiro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style_trans.css">
 </head>
 <body>
+    <?php include 'navbar.php'; ?>
+
     <h1>Sistema Financeiro Pessoal</h1>
     
     <div>
         <p>Bem-vindo, <strong><?php echo htmlspecialchars($usuario_nome); ?></strong></p>
-        <a href="logout.php">Sair</a>
     </div>
     
     <?php exibir_mensagem(); ?>
-    
-    <nav>
-        <ul>
-            <li><a href="index.php">Dashboard</a></li>
-            <li><a href="categorias_listar.php">Categorias</a></li>
-            <li><a href="transacoes_listar.php">Transações</a></li>
-        </ul>
-    </nav>
-    
-    <h2>Transações</h2>
     
     <div>
         <a href="transacoes_formulario.php">Nova Transação</a>
@@ -109,7 +102,7 @@ $categorias = $stmt_categorias->fetchAll();
     </form>
     
     <?php if (count($transacoes) > 0): ?>
-        <table border="1">
+        <table >
             <thead>
                 <tr>
                     <th>Data</th>
@@ -140,5 +133,8 @@ $categorias = $stmt_categorias->fetchAll();
     <?php else: ?>
         <p>Nenhuma transação encontrada.</p>
     <?php endif; ?>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>

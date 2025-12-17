@@ -1,0 +1,46 @@
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+}
+
+.card-form {
+    max-width: 500px;
+    margin: auto;
+    margin-top: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+/* Título da página */
+h2 {
+    font-weight: 600;
+    color: #111;
+}
+
+/* Labels */
+.form-label {
+    font-weight: 500;
+    color: #333;
+}
+
+/* Inputs */
+.form-control,
+.form-select {
+    border-radius: 8px;
+}
+
+/* Botão principal */
+.btn-dark {
+    background-color: #111;
+    border: none;
+    padding: 10px 20px;
+}
+
+.btn-dark:hover {
+    background-color: #000;
+}
+
+/* Botão cancelar */
+.btn-outline-secondary {
+    border-radius: 8px;
+}
