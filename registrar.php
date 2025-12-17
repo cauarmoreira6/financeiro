@@ -1,3 +1,4 @@
+
 <?php
 require_once 'config.php';
 require_once 'mensagens.php';
@@ -31,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     // Verificar se o e-mail já existe
     $sql = "SELECT id_usuario FROM usuario WHERE email = :email";
-    $stmt = $pdo->prepare($sql);
+    $stmt = $conn->prepare($sql);
     $stmt->bindParam(':email', $email);
     $stmt->execute();
     
@@ -46,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     // Inserir novo usuário
     $sql = "INSERT INTO usuario (nome, email, senha) VALUES (:nome, :email, :senha)";
-    $stmt = $pdo->prepare($sql);
+    $stmt = $conn->prepare($sql);
     $stmt->bindParam(':nome', $nome);
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':senha', $senha_hash);
